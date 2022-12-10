@@ -12,11 +12,7 @@ if uploaded_file is not None:
     # Read the image file
     image = cv2.imread(file_path)
 
-    # Convert the image to grayscale
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-    # Apply the Canny edge detector to the grayscale image
-    edges = cv2.Canny(gray, 50, 100)
-
-    # Display the original image and the edge-detected image
-    st.image([image, edges], caption=["Original Image", "Edge-detected Image"])
+    # Check if the image was successfully read
+    if image is not None:
+        # Convert the image to grayscale
+        gray = cv2.cvtColor(image, cv2.COLOR
