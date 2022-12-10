@@ -6,8 +6,11 @@ uploaded_file = st.file_uploader("Choose an image file")
 
 # Check if the user has uploaded a file
 if uploaded_file is not None:
+    # Get the path to the uploaded file
+    file_path = uploaded_file.name
+
     # Read the image file
-    image = cv2.imread(uploaded_file)
+    image = cv2.imread(file_path)
 
     # Convert the image to grayscale
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
