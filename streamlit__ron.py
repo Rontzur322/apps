@@ -7,7 +7,7 @@ uploaded_file = st.file_uploader("Choose an image file")
 # Check if the user has uploaded a file
 if uploaded_file is not None:
     # Get the path to the uploaded file
-    file_path = uploaded_file.get_path()
+    file_path = uploaded_file.path
 
     # Debug the file path
     print(file_path)
@@ -28,6 +28,3 @@ if uploaded_file is not None:
     else:
         # Display an error message if the image could not be read
         st.error("Could not read image file")
-
-
-        
