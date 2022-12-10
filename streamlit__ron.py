@@ -15,4 +15,14 @@ if uploaded_file is not None:
     # Check if the image was successfully read
     if image is not None:
         # Convert the image to grayscale
-        gray = cv2.cvtColor(image, cv2.COLOR
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+        # Apply the Canny edge detector to the grayscale image
+        edges = cv2.Canny(gray, 50, 100)
+
+        # Display only the edge-detected image
+        st.image(edges, caption="Edge-detected Image")
+    else:
+        # Display an error message if the image could not be read
+        st.error("Could not read image file")
+
