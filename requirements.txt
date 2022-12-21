@@ -3,3 +3,4 @@ scikit-image
 opencv-python
 opencv-contrib-python-headless
 numpy
+pandas
