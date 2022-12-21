@@ -7,22 +7,17 @@ import streamlit as st
 #if uploaded_file is not None:
     # Display the uploaded image
  #   st.image(uploaded_file)
+import streamlit as st
+import pandas as pd
 
-# Allow the user to select a CSV file containing worker data
-worker_data_file = st.file_uploader("Select a CSV file containing worker data")
+# Allow the user to select an Excel file
+excel_file = st.file_uploader("Select an Excel file")
 
-# Load the worker data into a Pandas DataFrame
-if worker_data_file is not None:
-    worker_data = pd.read_csv(worker_data_file)
-    worker_data.set_index("ID", inplace=True)
+# Load the Excel file into a Pandas DataFrame
+if excel_file is not None:
+    df = pd.read_excel(excel_file)
 
-# Display the worker data in a table
-if worker_data is not None:
-    st.table(worker_data)
+# Display the contents of the Excel file in a table
+if df is not None:
+    st.table(df)
 
-# Allow the user to select workers to add to a shift
-selected_workers = st.multiselect("Select workers to add to shift:", worker_data.index)
-
-# Display the selected workers in a table
-if selected_workers:
-    st.table(worker_data.loc[selected_workers])
